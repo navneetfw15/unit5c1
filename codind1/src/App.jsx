@@ -1,13 +1,37 @@
+
+
+import "./App.css";
+import{useState}from"react";
+
+
+
 function App() {
+
+  const [score, setScore]= useState(256);
+  const [wicket, setWicket]= useState(3);
+  const [over, setOver]= useState(20);
+  // const [ball, setball]= useState(6);
+
+  const handleScore =(value)=>{
+    setScore(score+value);
+  }
+  const handleWicket =(value)=>{
+    setWicket(wicket+value);
+  }
+  const handleBall =(value)=>{
+    setBall(ball+value);
+  };
+
+
   return (
     <div className="App">
       <h3>India:</h3>
       <div className="banner">
         <div>
-          Score:{" "}
+          Score:{""}
           <h1 className="scoreCount">
             {
-              // show "score" here
+              score
             }
           </h1>
         </div>
@@ -15,7 +39,7 @@ function App() {
           Wicket:{" "}
           <h1 className="wicketCount">
             {
-              // show wicket here
+              wicket
             }
           </h1>
         </div>
@@ -24,6 +48,8 @@ function App() {
           Over:{" "}
           <h1 className="overCount">
             {
+
+              over
               // Show Over here in the format: "over.ball" eg: 4.5 means 4th over and 5th ball
               // if 1 more ball is thrown then over is now 5.0
               // you have to write logic to form this string from current ball number.
@@ -35,9 +61,20 @@ function App() {
       <div className="addScore">
         Add Score
         {/* these buttons should add the respective amount in the score */}
-        <button className="addScore1">Add 1</button>
-        <button className="addScore4">Add 4</button>
-        <button className="addScore6">Add 6</button>
+        <button onclick = {()=>{
+          handleScore(1);
+        }} 
+        className="addScore1">Add 1</button>
+
+        <button onclick = {()=>{
+          handleScore(4);
+        }}   
+        className="addScore4">Add 4</button>
+
+       <button onclick = {()=>{
+          handleScore(6);
+        }}  
+        className="addScore6">Add 6</button>
       </div>
 
       <div className="addWicket">
